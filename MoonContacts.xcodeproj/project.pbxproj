@@ -1,0 +1,664 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 53;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		66617701271EDD7F00A990DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66617700271EDD7F00A990DB /* AppDelegate.swift */; };
+		66617703271EDD7F00A990DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66617702271EDD7F00A990DB /* SceneDelegate.swift */; };
+		66617705271EDD7F00A990DB /* ContactListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66617704271EDD7F00A990DB /* ContactListVC.swift */; };
+		66617708271EDD7F00A990DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66617706271EDD7F00A990DB /* Main.storyboard */; };
+		6661770A271EDD8100A990DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66617709271EDD8100A990DB /* Assets.xcassets */; };
+		6661770D271EDD8100A990DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6661770B271EDD8100A990DB /* LaunchScreen.storyboard */; };
+		6661771A271EDE0C00A990DB /* ContactDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66617719271EDE0C00A990DB /* ContactDetailVC.swift */; };
+		6661771D271EE5F800A990DB /* ResultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6661771C271EE5F800A990DB /* ResultWrapper.swift */; };
+		6661771F271EE63400A990DB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6661771E271EE63400A990DB /* API.swift */; };
+		66617721271EE74A00A990DB /* ContactListM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66617720271EE74A00A990DB /* ContactListM.swift */; };
+		66617725271F090C00A990DB /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66617724271F090C00A990DB /* ArrayExtensions.swift */; };
+		66A4C371271F204500BC83B6 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A4C36F271F204500BC83B6 /* ProjectCell.swift */; };
+		66C11620272172C600E8CF51 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1161F272172C600E8CF51 /* BigButton.swift */; };
+		66C45DCA2722F7A40054D7B1 /* MoonContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C45DC92722F7A40054D7B1 /* MoonContactsTests.swift */; };
+		66C45DD12722FEDF0054D7B1 /* AppConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C45DD02722FEDF0054D7B1 /* AppConst.swift */; };
+		66D99062271FD25C007BBA65 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D99061271FD25C007BBA65 /* ContactManager.swift */; };
+		66D99064271FD43B007BBA65 /* ContactListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D99063271FD43B007BBA65 /* ContactListVM.swift */; };
+		66D99066271FE08A007BBA65 /* ContactListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D99065271FE08A007BBA65 /* ContactListTableCell.swift */; };
+		66D99068271FEC51007BBA65 /* ContactListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D99067271FEC51007BBA65 /* ContactListSection.swift */; };
+		66D9906A271FEC71007BBA65 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D99069271FEC71007BBA65 /* Contact.swift */; };
+		66D9906C271FFE80007BBA65 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D9906B271FFE80007BBA65 /* UIButtonExtensions.swift */; };
+		66D9906F27200123007BBA65 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D9906E27200123007BBA65 /* BaseVC.swift */; };
+		925392AB277223AF009A3712 /* ContractListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AA277223AF009A3712 /* ContractListTableView.swift */; };
+		925392AD27722500009A3712 /* ContractProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AC27722500009A3712 /* ContractProvider.swift */; };
+		925392AF27722765009A3712 /* ContractDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AE27722765009A3712 /* ContractDetailVM.swift */; };
+		925392B127722798009A3712 /* ContractDetailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392B027722798009A3712 /* ContractDetailCollectionView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		66C45DCB2722F7A40054D7B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 666176F5271EDD7F00A990DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 666176FC271EDD7F00A990DB;
+			remoteInfo = MoonContacts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		666176FD271EDD7F00A990DB /* MoonContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66617700271EDD7F00A990DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66617702271EDD7F00A990DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		66617704271EDD7F00A990DB /* ContactListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVC.swift; sourceTree = "<group>"; };
+		66617707271EDD7F00A990DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		66617709271EDD8100A990DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6661770C271EDD8100A990DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6661770E271EDD8100A990DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66617719271EDE0C00A990DB /* ContactDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailVC.swift; sourceTree = "<group>"; };
+		6661771C271EE5F800A990DB /* ResultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWrapper.swift; sourceTree = "<group>"; };
+		6661771E271EE63400A990DB /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		66617720271EE74A00A990DB /* ContactListM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListM.swift; sourceTree = "<group>"; };
+		66617724271F090C00A990DB /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		66A4C36F271F204500BC83B6 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		66C1161F272172C600E8CF51 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
+		66C45DC72722F7A40054D7B1 /* MoonContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoonContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66C45DC92722F7A40054D7B1 /* MoonContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonContactsTests.swift; sourceTree = "<group>"; };
+		66C45DD02722FEDF0054D7B1 /* AppConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConst.swift; sourceTree = "<group>"; };
+		66D99061271FD25C007BBA65 /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
+		66D99063271FD43B007BBA65 /* ContactListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVM.swift; sourceTree = "<group>"; };
+		66D99065271FE08A007BBA65 /* ContactListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableCell.swift; sourceTree = "<group>"; };
+		66D99067271FEC51007BBA65 /* ContactListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListSection.swift; sourceTree = "<group>"; };
+		66D99069271FEC71007BBA65 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		66D9906B271FFE80007BBA65 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		66D9906E27200123007BBA65 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		925392AA277223AF009A3712 /* ContractListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractListTableView.swift; sourceTree = "<group>"; };
+		925392AC27722500009A3712 /* ContractProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractProvider.swift; sourceTree = "<group>"; };
+		925392AE27722765009A3712 /* ContractDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDetailVM.swift; sourceTree = "<group>"; };
+		925392B027722798009A3712 /* ContractDetailCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDetailCollectionView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		666176FA271EDD7F00A990DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66C45DC42722F7A40054D7B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		666176F4271EDD7F00A990DB = {
+			isa = PBXGroup;
+			children = (
+				666176FF271EDD7F00A990DB /* MoonContacts */,
+				66C45DC82722F7A40054D7B1 /* MoonContactsTests */,
+				666176FE271EDD7F00A990DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		666176FE271EDD7F00A990DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				666176FD271EDD7F00A990DB /* MoonContacts.app */,
+				66C45DC72722F7A40054D7B1 /* MoonContactsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		666176FF271EDD7F00A990DB /* MoonContacts */ = {
+			isa = PBXGroup;
+			children = (
+				92EA8EF92771CC0800FBB9E4 /* App */,
+				66617714271EDD9E00A990DB /* Model */,
+				66617715271EDDA400A990DB /* View */,
+				66617716271EDDAE00A990DB /* ViewModel */,
+				66617722271F08F900A990DB /* Utils */,
+				6661771B271EDE9100A990DB /* Network */,
+				66617709271EDD8100A990DB /* Assets.xcassets */,
+				6661770B271EDD8100A990DB /* LaunchScreen.storyboard */,
+			);
+			path = MoonContacts;
+			sourceTree = "<group>";
+		};
+		66617714271EDD9E00A990DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66617720271EE74A00A990DB /* ContactListM.swift */,
+				66D99067271FEC51007BBA65 /* ContactListSection.swift */,
+				66D99069271FEC71007BBA65 /* Contact.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		66617715271EDDA400A990DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66D9906D27200117007BBA65 /* Base */,
+				66A4C36E271F201400BC83B6 /* Cells */,
+				66617706271EDD7F00A990DB /* Main.storyboard */,
+				66617718271EDDE400A990DB /* ContactDetail */,
+				66617717271EDDC600A990DB /* ContactList */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		66617716271EDDAE00A990DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				66D99063271FD43B007BBA65 /* ContactListVM.swift */,
+				925392AE27722765009A3712 /* ContractDetailVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		66617717271EDDC600A990DB /* ContactList */ = {
+			isa = PBXGroup;
+			children = (
+				66617704271EDD7F00A990DB /* ContactListVC.swift */,
+				925392AA277223AF009A3712 /* ContractListTableView.swift */,
+				925392AC27722500009A3712 /* ContractProvider.swift */,
+			);
+			path = ContactList;
+			sourceTree = "<group>";
+		};
+		66617718271EDDE400A990DB /* ContactDetail */ = {
+			isa = PBXGroup;
+			children = (
+				66617719271EDE0C00A990DB /* ContactDetailVC.swift */,
+				925392B027722798009A3712 /* ContractDetailCollectionView.swift */,
+			);
+			path = ContactDetail;
+			sourceTree = "<group>";
+		};
+		6661771B271EDE9100A990DB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6661771C271EE5F800A990DB /* ResultWrapper.swift */,
+				6661771E271EE63400A990DB /* API.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		66617722271F08F900A990DB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				66617723271F08FE00A990DB /* Extensions */,
+				66D99061271FD25C007BBA65 /* ContactManager.swift */,
+				66C1161F272172C600E8CF51 /* BigButton.swift */,
+				66C45DD02722FEDF0054D7B1 /* AppConst.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		66617723271F08FE00A990DB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				66617724271F090C00A990DB /* ArrayExtensions.swift */,
+				66D9906B271FFE80007BBA65 /* UIButtonExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		66A4C36E271F201400BC83B6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				66D99065271FE08A007BBA65 /* ContactListTableCell.swift */,
+				66A4C36F271F204500BC83B6 /* ProjectCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		66C45DC82722F7A40054D7B1 /* MoonContactsTests */ = {
+			isa = PBXGroup;
+			children = (
+				66C45DC92722F7A40054D7B1 /* MoonContactsTests.swift */,
+			);
+			path = MoonContactsTests;
+			sourceTree = "<group>";
+		};
+		66D9906D27200117007BBA65 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				66D9906E27200123007BBA65 /* BaseVC.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		92EA8EF92771CC0800FBB9E4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				66617700271EDD7F00A990DB /* AppDelegate.swift */,
+				66617702271EDD7F00A990DB /* SceneDelegate.swift */,
+				6661770E271EDD8100A990DB /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		666176FC271EDD7F00A990DB /* MoonContacts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66617711271EDD8100A990DB /* Build configuration list for PBXNativeTarget "MoonContacts" */;
+			buildPhases = (
+				666176F9271EDD7F00A990DB /* Sources */,
+				666176FA271EDD7F00A990DB /* Frameworks */,
+				666176FB271EDD7F00A990DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoonContacts;
+			productName = MoonContacts;
+			productReference = 666176FD271EDD7F00A990DB /* MoonContacts.app */;
+			productType = "com.apple.product-type.application";
+		};
+		66C45DC62722F7A40054D7B1 /* MoonContactsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66C45DCF2722F7A40054D7B1 /* Build configuration list for PBXNativeTarget "MoonContactsTests" */;
+			buildPhases = (
+				66C45DC32722F7A40054D7B1 /* Sources */,
+				66C45DC42722F7A40054D7B1 /* Frameworks */,
+				66C45DC52722F7A40054D7B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66C45DCC2722F7A40054D7B1 /* PBXTargetDependency */,
+			);
+			name = MoonContactsTests;
+			productName = MoonContactsTests;
+			productReference = 66C45DC72722F7A40054D7B1 /* MoonContactsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		666176F5271EDD7F00A990DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					666176FC271EDD7F00A990DB = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					66C45DC62722F7A40054D7B1 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 666176FC271EDD7F00A990DB;
+					};
+				};
+			};
+			buildConfigurationList = 666176F8271EDD7F00A990DB /* Build configuration list for PBXProject "MoonContacts" */;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 666176F4271EDD7F00A990DB;
+			productRefGroup = 666176FE271EDD7F00A990DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				666176FC271EDD7F00A990DB /* MoonContacts */,
+				66C45DC62722F7A40054D7B1 /* MoonContactsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		666176FB271EDD7F00A990DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6661770D271EDD8100A990DB /* LaunchScreen.storyboard in Resources */,
+				6661770A271EDD8100A990DB /* Assets.xcassets in Resources */,
+				66617708271EDD7F00A990DB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66C45DC52722F7A40054D7B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		666176F9271EDD7F00A990DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66D9906C271FFE80007BBA65 /* UIButtonExtensions.swift in Sources */,
+				66D99062271FD25C007BBA65 /* ContactManager.swift in Sources */,
+				66D99066271FE08A007BBA65 /* ContactListTableCell.swift in Sources */,
+				6661771D271EE5F800A990DB /* ResultWrapper.swift in Sources */,
+				6661771A271EDE0C00A990DB /* ContactDetailVC.swift in Sources */,
+				66617705271EDD7F00A990DB /* ContactListVC.swift in Sources */,
+				66C11620272172C600E8CF51 /* BigButton.swift in Sources */,
+				66D99068271FEC51007BBA65 /* ContactListSection.swift in Sources */,
+				66D9906A271FEC71007BBA65 /* Contact.swift in Sources */,
+				925392AD27722500009A3712 /* ContractProvider.swift in Sources */,
+				66C45DD12722FEDF0054D7B1 /* AppConst.swift in Sources */,
+				66617701271EDD7F00A990DB /* AppDelegate.swift in Sources */,
+				66A4C371271F204500BC83B6 /* ProjectCell.swift in Sources */,
+				66D99064271FD43B007BBA65 /* ContactListVM.swift in Sources */,
+				66D9906F27200123007BBA65 /* BaseVC.swift in Sources */,
+				925392AB277223AF009A3712 /* ContractListTableView.swift in Sources */,
+				6661771F271EE63400A990DB /* API.swift in Sources */,
+				66617721271EE74A00A990DB /* ContactListM.swift in Sources */,
+				925392AF27722765009A3712 /* ContractDetailVM.swift in Sources */,
+				925392B127722798009A3712 /* ContractDetailCollectionView.swift in Sources */,
+				66617703271EDD7F00A990DB /* SceneDelegate.swift in Sources */,
+				66617725271F090C00A990DB /* ArrayExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66C45DC32722F7A40054D7B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66C45DCA2722F7A40054D7B1 /* MoonContactsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		66C45DCC2722F7A40054D7B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 666176FC271EDD7F00A990DB /* MoonContacts */;
+			targetProxy = 66C45DCB2722F7A40054D7B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		66617706271EDD7F00A990DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66617707271EDD7F00A990DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6661770B271EDD8100A990DB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6661770C271EDD8100A990DB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6661770F271EDD8100A990DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		66617710271EDD8100A990DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66617712271EDD8100A990DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoonContacts/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "alper-ozturk.MoonContacts";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		66617713271EDD8100A990DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoonContacts/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "alper-ozturk.MoonContacts";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		66C45DCD2722F7A40054D7B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35GP4R4P7H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "alper-ozturk.MoonContactsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoonContacts.app/MoonContacts";
+			};
+			name = Debug;
+		};
+		66C45DCE2722F7A40054D7B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35GP4R4P7H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "alper-ozturk.MoonContactsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoonContacts.app/MoonContacts";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		666176F8271EDD7F00A990DB /* Build configuration list for PBXProject "MoonContacts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6661770F271EDD8100A990DB /* Debug */,
+				66617710271EDD8100A990DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66617711271EDD8100A990DB /* Build configuration list for PBXNativeTarget "MoonContacts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66617712271EDD8100A990DB /* Debug */,
+				66617713271EDD8100A990DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66C45DCF2722F7A40054D7B1 /* Build configuration list for PBXNativeTarget "MoonContactsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66C45DCD2722F7A40054D7B1 /* Debug */,
+				66C45DCE2722F7A40054D7B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 666176F5271EDD7F00A990DB /* Project object */;
+}
