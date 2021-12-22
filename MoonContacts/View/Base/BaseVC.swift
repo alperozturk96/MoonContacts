@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import ContactsUI
+import Contacts
 
 class BaseVC: UIViewController {
     
@@ -31,6 +33,15 @@ class BaseVC: UIViewController {
         if (activityIndicator != nil){
             activityIndicator?.stopAnimating()
         }
+    }
+    
+    func openNativeContactDetailScreen(contact:CNContact){
+        let vc = CNContactViewController(for: contact)
+        vc.contactStore = CNContactStore()
+       
+        vc.allowsActions = true
+        vc.allowsEditing = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

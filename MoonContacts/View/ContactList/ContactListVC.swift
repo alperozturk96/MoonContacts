@@ -29,7 +29,7 @@ class ContactListVC: BaseVC {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == AppConst.contractDetailSegeu {
+        if segue.identifier == SegueIdentifiers.contactListToContactDetail {
             if let destinationVC = segue.destination as? ContactDetailVC {
                 destinationVC.employee = VM.selectedEmployee
                 destinationVC.contact = VM.selectedContact
@@ -43,12 +43,12 @@ class ContactListVC: BaseVC {
       
         let contractProvider = ContractProvider.init(store: store, authorizationStatus: authorizationStatus)
         contractProvider.askUserPermissionToAccessContactList {
-            self.prepareUI()
+            self.setupUI()
         }
     }
     
-    func prepareUI(){
-        VM.getContactListFromDevice()
+    func setupUI(){
+        VM.contactsInDevice = ContactManager().fetchContactListFromDevice()
         addPullToRefreshToEmployeeTableView()
         fetchEmployeeList()
     }
@@ -65,7 +65,7 @@ class ContactListVC: BaseVC {
     }
     
     func initEmployeeTableView(){
-        employeeTableView.register(ContactListTableCell.self, forCellReuseIdentifier: VM.employeeTableViewIdentifier)
+        employeeTableView.register(ContactListTableCell.self, forCellReuseIdentifier: CellIdentifiers.employeeTableViewIdentifier)
         employeeTableView.dataSource = self
         employeeTableView.delegate = self
         searchBar.delegate = self
@@ -87,8 +87,8 @@ class ContactListVC: BaseVC {
         let errorAlert = UIAlertController(title: "Error", message: "An Error occurred while fetching datas.", preferredStyle: .alert)
         
         errorAlert.addAction(UIAlertAction(title: "Retry", style: .default) { [weak self] action -> Void in
-            guard let strongSelf = self else {return}
-            strongSelf.fetchEmployeeList()
+            guard let self = self else { return }
+            self.fetchEmployeeList()
         })
         
         errorAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -96,22 +96,24 @@ class ContactListVC: BaseVC {
         present(errorAlert, animated: true, completion: nil)
     }
     
-    
-    //MARK: API CALL
     private func fetchEmployeeList(){
-        tallinEmployeeList = VM.fetchTallinEmployeeList(complicated: { [weak self] response in
+        let publisher = API.tallinEmployeeList()
+        
+        tallinEmployeeList = VM.fetchTallinEmployeeList(publisher: publisher, complicated: { [weak self] response in
             guard let self = self else { return }
             self.VM.employees = response.employees!
             self.fetchTartuEmployeeList()
         }, error: { [weak self] error in
             guard let self = self else {return}
             self.showErrorAlert()
-            print("error catched at tallinEmployeeList: ",error)
+            print("error catched at tartuEmployeeList: ",error)
         })
     }
     
     private func fetchTartuEmployeeList(){
-        tartuEmployeeList = VM.fetchTartuEmployeeList(complicated: { [weak self] response in
+        let publisher = API.tartuEmployeeList()
+        
+        tartuEmployeeList = VM.fetchTartuEmployeeList(publisher: publisher, complicated: { [weak self] response in
             guard let self = self else { return }
             self.VM.employees += response.employees!
             self.updateEmployeeTableView()

@@ -20,7 +20,6 @@
 		66617725271F090C00A990DB /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66617724271F090C00A990DB /* ArrayExtensions.swift */; };
 		66A4C371271F204500BC83B6 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A4C36F271F204500BC83B6 /* ProjectCell.swift */; };
 		66C11620272172C600E8CF51 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1161F272172C600E8CF51 /* BigButton.swift */; };
-		66C45DCA2722F7A40054D7B1 /* MoonContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C45DC92722F7A40054D7B1 /* MoonContactsTests.swift */; };
 		66C45DD12722FEDF0054D7B1 /* AppConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C45DD02722FEDF0054D7B1 /* AppConst.swift */; };
 		66D99062271FD25C007BBA65 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D99061271FD25C007BBA65 /* ContactManager.swift */; };
 		66D99064271FD43B007BBA65 /* ContactListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D99063271FD43B007BBA65 /* ContactListVM.swift */; };
@@ -33,6 +32,10 @@
 		925392AD27722500009A3712 /* ContractProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AC27722500009A3712 /* ContractProvider.swift */; };
 		925392AF27722765009A3712 /* ContractDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AE27722765009A3712 /* ContractDetailVM.swift */; };
 		925392B127722798009A3712 /* ContractDetailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392B027722798009A3712 /* ContractDetailCollectionView.swift */; };
+		928469C02772FB01000C3DE7 /* EmployeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469BF2772FB01000C3DE7 /* EmployeeManager.swift */; };
+		928469C32773073B000C3DE7 /* MockResultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C22773073B000C3DE7 /* MockResultWrapper.swift */; };
+		928469C527730765000C3DE7 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C427730765000C3DE7 /* MockURLProtocol.swift */; };
+		928469C8277307E3000C3DE7 /* ContractListVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C7277307E3000C3DE7 /* ContractListVCTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +65,6 @@
 		66A4C36F271F204500BC83B6 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		66C1161F272172C600E8CF51 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
 		66C45DC72722F7A40054D7B1 /* MoonContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoonContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		66C45DC92722F7A40054D7B1 /* MoonContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonContactsTests.swift; sourceTree = "<group>"; };
 		66C45DD02722FEDF0054D7B1 /* AppConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConst.swift; sourceTree = "<group>"; };
 		66D99061271FD25C007BBA65 /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		66D99063271FD43B007BBA65 /* ContactListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVM.swift; sourceTree = "<group>"; };
@@ -75,6 +77,10 @@
 		925392AC27722500009A3712 /* ContractProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractProvider.swift; sourceTree = "<group>"; };
 		925392AE27722765009A3712 /* ContractDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDetailVM.swift; sourceTree = "<group>"; };
 		925392B027722798009A3712 /* ContractDetailCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDetailCollectionView.swift; sourceTree = "<group>"; };
+		928469BF2772FB01000C3DE7 /* EmployeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeManager.swift; sourceTree = "<group>"; };
+		928469C22773073B000C3DE7 /* MockResultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResultWrapper.swift; sourceTree = "<group>"; };
+		928469C427730765000C3DE7 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		928469C7277307E3000C3DE7 /* ContractListVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractListVCTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 				66617704271EDD7F00A990DB /* ContactListVC.swift */,
 				925392AA277223AF009A3712 /* ContractListTableView.swift */,
 				925392AC27722500009A3712 /* ContractProvider.swift */,
+				928469BF2772FB01000C3DE7 /* EmployeeManager.swift */,
 			);
 			path = ContactList;
 			sourceTree = "<group>";
@@ -219,7 +226,8 @@
 		66C45DC82722F7A40054D7B1 /* MoonContactsTests */ = {
 			isa = PBXGroup;
 			children = (
-				66C45DC92722F7A40054D7B1 /* MoonContactsTests.swift */,
+				928469C6277307B7000C3DE7 /* Controllers */,
+				928469C12773071D000C3DE7 /* Mocks */,
 			);
 			path = MoonContactsTests;
 			sourceTree = "<group>";
@@ -230,6 +238,23 @@
 				66D9906E27200123007BBA65 /* BaseVC.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		928469C12773071D000C3DE7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				928469C22773073B000C3DE7 /* MockResultWrapper.swift */,
+				928469C427730765000C3DE7 /* MockURLProtocol.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		928469C6277307B7000C3DE7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				928469C7277307E3000C3DE7 /* ContractListVCTests.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		92EA8EF92771CC0800FBB9E4 /* App */ = {
@@ -349,6 +374,7 @@
 				6661771D271EE5F800A990DB /* ResultWrapper.swift in Sources */,
 				6661771A271EDE0C00A990DB /* ContactDetailVC.swift in Sources */,
 				66617705271EDD7F00A990DB /* ContactListVC.swift in Sources */,
+				928469C02772FB01000C3DE7 /* EmployeeManager.swift in Sources */,
 				66C11620272172C600E8CF51 /* BigButton.swift in Sources */,
 				66D99068271FEC51007BBA65 /* ContactListSection.swift in Sources */,
 				66D9906A271FEC71007BBA65 /* Contact.swift in Sources */,
@@ -372,7 +398,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66C45DCA2722F7A40054D7B1 /* MoonContactsTests.swift in Sources */,
+				928469C8277307E3000C3DE7 /* ContractListVCTests.swift in Sources */,
+				928469C527730765000C3DE7 /* MockURLProtocol.swift in Sources */,
+				928469C32773073B000C3DE7 /* MockResultWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

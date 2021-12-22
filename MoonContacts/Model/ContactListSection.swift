@@ -11,7 +11,7 @@ import Contacts
 struct ContactListSection {
     let letter : String
     let names : [String]
-    var isThisContactRegisteredInDevice:[Bool]
+    var isInDevice:[Bool]
     var contact:[CNContact]
     var employee:[Employee]
 }

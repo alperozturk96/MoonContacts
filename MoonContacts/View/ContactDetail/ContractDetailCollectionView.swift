@@ -19,7 +19,9 @@ extension ContactDetailVC: UICollectionViewDataSource, UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: projectsTableViewIdentifier, for: indexPath) as! ProjectCell
+        guard let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.projectsTableViewIdentifier, for: indexPath) as? ProjectCell else {
+            return UICollectionViewCell()
+        }
                 
         cell.setCell(title: employee?.projects?[indexPath.row] ?? "")
         

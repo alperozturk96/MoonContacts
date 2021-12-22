@@ -10,9 +10,13 @@ import Foundation
 struct AppConst {
     static let tallinJobAppLink = "https://tallinn-jobapp.aw.ee/"
     static let tartuJobAppLink = "https://tartu-jobapp.aw.ee/"
-    
-    
-    //MARK: ContractListVC
-    static let contractDetailSegeu = "openContactDetailFromContactList"
-    
+}
+
+struct SegueIdentifiers {
+    static let contactListToContactDetail = "openContactDetailFromContactList"
+}
+
+struct CellIdentifiers {
+    static let employeeTableViewIdentifier = "employeeTable"
+    static let projectsTableViewIdentifier =  "projectsTable"
 }

@@ -9,22 +9,13 @@ import UIKit
 import Contacts
 import ContactsUI
 
-
 extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
     
-    private func openNativeContactDetailScreen(contact:CNContact){
-        let vc = CNContactViewController(for: contact)
-        vc.contactStore = CNContactStore()
-        vc.delegate = self
-        vc.allowsActions = true
-        vc.allowsEditing = true
-        let navigationController = UINavigationController(rootViewController: vc)
-        present(navigationController, animated: true, completion: nil)
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        VM.selectedEmployee = VM.findSelectedEmployee(fullName: VM.contactList[indexPath.section].names[indexPath.row])
-        let isRegisteredInDevice = VM.contactList[indexPath.section].isThisContactRegisteredInDevice[safe:indexPath.row] ?? false
+        let employeeManager = EmployeeManager(employees: VM.employees)
+        VM.selectedEmployee =   employeeManager.findSelectedEmployee(fullName: VM.contactList[indexPath.section].names[indexPath.row])
+        
+        let isRegisteredInDevice = VM.contactList[indexPath.section].isInDevice[safe:indexPath.row] ?? false
         
         if isRegisteredInDevice {
             VM.selectedContact = VM.contactList[indexPath.section].contact[safe: indexPath.row]
@@ -36,7 +27,7 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
        
         
         if VM.selectedEmployee != nil {
-            performSegue(withIdentifier: "openContactDetailFromContactList", sender: nil)
+            performSegue(withIdentifier: SegueIdentifiers.contactListToContactDetail, sender: nil)
         }
     }
     
@@ -54,11 +45,14 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = (employeeTableView.dequeueReusableCell(withIdentifier: VM.employeeTableViewIdentifier) as! ContactListTableCell?)!
+        guard let cell = (employeeTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.employeeTableViewIdentifier) as? ContactListTableCell) else {
+            return UITableViewCell()
+        }
+        
         
         let section = VM.contactList[indexPath.section]
         let fullName = section.names[indexPath.row]
-        let isRegisteredInDevice = section.isThisContactRegisteredInDevice[safe:indexPath.row]
+        let isRegisteredInDevice = section.isInDevice[safe:indexPath.row]
         let contact = section.contact[safe:indexPath.row]
         
          if isRegisteredInDevice == true

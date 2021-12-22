@@ -5,12 +5,10 @@
 //  Created by Alper Öztürk on 19.10.2021.
 //
 
-
-import ContactsUI
 import Contacts
 import UIKit
 
-class ContactDetailVC: UIViewController {
+class ContactDetailVC: BaseVC {
     
     @IBOutlet private weak var projectsCVHeight: NSLayoutConstraint!
     @IBOutlet private weak var experienceLabel: UILabel!
@@ -23,7 +21,6 @@ class ContactDetailVC: UIViewController {
     
     var employee:Employee?
     var contact:CNContact!
-    let projectsTableViewIdentifier = "projectsTable"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +29,7 @@ class ContactDetailVC: UIViewController {
         checkExistanceOfContact()
     }
     
-    private func checkExistanceOfContact(){
+    func checkExistanceOfContact(){
         if contact != nil {
             btnOpenContract.isHidden = false
             btnOpenContract.addAction {
@@ -41,7 +38,7 @@ class ContactDetailVC: UIViewController {
         }
     }
     
-    private func loadContactDetail(){
+    func loadContactDetail(){
         guard let employee = employee else { return }
         guard let firstName = employee.fname else { return }
         guard let lastName = employee.lname else { return }
@@ -63,30 +60,9 @@ class ContactDetailVC: UIViewController {
         }
     }
     
-    func openNativeContactDetailScreen(contact:CNContact){
-        let vc = CNContactViewController(for: contact)
-        vc.contactStore = CNContactStore()
-        vc.delegate = self
-        vc.allowsActions = true
-        vc.allowsEditing = true
-        let navigationController = UINavigationController(rootViewController: vc)
-        present(navigationController, animated: true, completion: nil)
-    }
-    
-    private func initProjectCV(){
-        projectsCV.register(ProjectCell.self, forCellWithReuseIdentifier: projectsTableViewIdentifier)
+    func initProjectCV(){
+        projectsCV.register(ProjectCell.self, forCellWithReuseIdentifier: CellIdentifiers.projectsTableViewIdentifier)
         projectsCV.dataSource = self
         projectsCV.delegate = self
-    }
-}
-
-
-extension ContactDetailVC: CNContactViewControllerDelegate{
-    func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {
-        viewController.dismiss(animated: true, completion: nil)
-    }
-    
-    func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
-        return true
     }
 }
