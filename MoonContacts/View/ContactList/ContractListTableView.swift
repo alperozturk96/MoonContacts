@@ -24,7 +24,7 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
         {
             VM.selectedContact = nil
         }
-       
+        
         
         if VM.selectedEmployee != nil {
             performSegue(withIdentifier: SegueIdentifiers.contactListToContactDetail, sender: nil)
@@ -53,22 +53,27 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
         let section = VM.contactList[indexPath.section]
         let fullName = section.names[indexPath.row]
         let isRegisteredInDevice = section.isInDevice[safe:indexPath.row]
-        let contact = section.contact[safe:indexPath.row]
         
-         if isRegisteredInDevice == true
-         {
-             cell.button.isHidden = false
-         }
-         else
-         {
-             cell.button.isHidden = true
-         }
-         
-        cell.buttonTapCallback = {
-            self.openNativeContactDetailScreen(contact: contact!)
+        if isRegisteredInDevice == true
+        {
+            cell.button.isHidden = false
+        }
+        else
+        {
+            cell.button.isHidden = true
         }
         
         cell.textLabel?.text = fullName
+        
+        
+        let contact = section.contact[safe:indexPath.row]
+        
+        if let contact = contact{
+            cell.buttonTapCallback = {
+                self.openNativeContactDetailScreen(contact: contact)
+            }
+        }
+
         return cell
     }
     

@@ -18,7 +18,7 @@ final class ContactListTableCell: UITableViewCell {
     
     let button: UIButton = {
         let btn = UIButton()
-        btn.setTitle("In Contact", for: .normal)
+        btn.setTitle("in_contact".localized, for: .normal)
         btn.backgroundColor = .systemIndigo
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.layer.cornerRadius = 8

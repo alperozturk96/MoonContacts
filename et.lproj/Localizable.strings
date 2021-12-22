@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  MoonContacts
+
+  Created by Alper Öztürk on 22.12.2021.
+  
+*/
+
+"no_project" = "Projekti ei leitud";
+"error" = "Viga";
+"error_message" = "Andmete toomisel ilmnes viga.";
+"retry" = "Uuesti proovima";
+"cancel" = "Tühista";
+"pull_to_refresh" = "Värskendamiseks tõmmake";
+"in_contact" = "Kontaktis";

@@ -11,31 +11,14 @@ import ContactsUI
 
 final class ContractProvider {
     var store: CNContactStore
-    var authorizationStatus: CNAuthorizationStatus
   
-    required init(store: CNContactStore, authorizationStatus: CNAuthorizationStatus) {
+    required init(store: CNContactStore) {
         self.store = store
-        self.authorizationStatus = authorizationStatus
     }
     
-    
-    func askUserPermissionToAccessContactList(onDone: @escaping ()->()){
-        if authorizationStatus == .notDetermined
-        {
-            store.requestAccess(for: .contacts) { didAuthorize,
-                error in
-                if didAuthorize {
-                    DispatchQueue.main.async {
-                        onDone()
-                    }
-                   
-                }
-            }
-        }
-        else if authorizationStatus == .authorized {
-            DispatchQueue.main.async {
-                onDone()
-            }
+    func askUserPermissionToAccessContactList(){
+        store.requestAccess(for: .contacts) { didAuthorize, err in
+            print("authorizationStatus is: ",didAuthorize)
         }
     }
 }

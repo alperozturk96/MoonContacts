@@ -13,11 +13,18 @@
 import ContactsUI
 
 final class ContactManager {
+    var contactsInDevice:[Contact]
+    var contacts:[CNContact]
+    let contactStore:CNContactStore
+    
+    required init(contactsInDevice: [Contact], contacts: [CNContact], contactStore: CNContactStore) {
+        self.contactsInDevice = contactsInDevice
+        self.contacts = contacts
+        self.contactStore = contactStore
+    }
     
     func fetchContactListFromDevice() -> [Contact]{
-        var contactsInDevice = [Contact]()
-        var contacts = [CNContact]()
-        let contactStore = CNContactStore()
+       
         let keysToFetch = [
             CNContactUrlAddressesKey,
             CNContactVCardSerialization.descriptorForRequiredKeys(),
@@ -44,8 +51,10 @@ final class ContactManager {
             let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: container.identifier)
             
             do {
-                let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch as! [CNKeyDescriptor])
-                contacts.append(contentsOf: containerResults)
+                if let keysToFetch = keysToFetch as? [CNKeyDescriptor] {
+                    let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch)
+                    contacts.append(contentsOf: containerResults)
+                }
             } catch {
                 print("Error fetching containers")
             }

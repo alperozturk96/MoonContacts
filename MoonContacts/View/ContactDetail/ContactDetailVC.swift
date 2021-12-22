@@ -10,6 +10,9 @@ import UIKit
 
 class ContactDetailVC: BaseVC {
     
+    @IBOutlet private weak var positionView: UIView!
+    @IBOutlet private weak var emailView: UIView!
+    @IBOutlet private weak var phoneAreaView: UIImageView!
     @IBOutlet private weak var projectsCVHeight: NSLayoutConstraint!
     @IBOutlet private weak var experienceLabel: UILabel!
     @IBOutlet private weak var btnOpenContract: UIButton!
@@ -20,7 +23,7 @@ class ContactDetailVC: BaseVC {
     @IBOutlet private weak var positionLabel: UILabel!
     
     var employee:Employee?
-    var contact:CNContact!
+    var contact:CNContact?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +32,33 @@ class ContactDetailVC: BaseVC {
         checkExistanceOfContact()
     }
     
+    func initProjectCV(){
+        projectsCV.register(ProjectCell.self, forCellWithReuseIdentifier: CellIdentifiers.projectsTableViewIdentifier)
+        projectsCV.dataSource = self
+        projectsCV.delegate = self
+    }
+    
     func checkExistanceOfContact(){
-        if contact != nil {
+        if let contact = contact {
             btnOpenContract.isHidden = false
+            
             btnOpenContract.addAction {
-                self.openNativeContactDetailScreen(contact: self.contact)
+                self.openNativeContactDetailScreen(contact: contact)
             }
+        }
+    }
+    
+    func checkVisibilityOfViews(){
+        if phoneLabel.text?.count ?? 0 > 0{
+            phoneAreaView.isHidden = false
+        }
+        
+        if emailLabel.text?.count ?? 0 > 0{
+            emailView.isHidden = false
+        }
+        
+        if positionLabel.text?.count ?? 0 > 0{
+            positionView.isHidden = false
         }
     }
     
@@ -48,21 +72,16 @@ class ContactDetailVC: BaseVC {
         emailLabel.text = employee.contact_details?.email
         positionLabel.text = employee.position
         
+        checkVisibilityOfViews()
         
         if employee.projects == nil {
             projectsCVHeight.constant = 0
-            experienceLabel.text = "No Project Found"
+            experienceLabel.text = "no_project".localized
             projectsCV.isHidden = true
         }
         else
         {
             initProjectCV()
         }
-    }
-    
-    func initProjectCV(){
-        projectsCV.register(ProjectCell.self, forCellWithReuseIdentifier: CellIdentifiers.projectsTableViewIdentifier)
-        projectsCV.dataSource = self
-        projectsCV.delegate = self
     }
 }

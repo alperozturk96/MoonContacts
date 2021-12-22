@@ -12,7 +12,7 @@ import Contacts
 
 final class ContactListVM:NSObject {
     
-    var contactsInDevice = [Contact]()
+    var contactsInDevice:[Contact]? = nil
     var employees = [Employee]()
     var selectedEmployee:Employee?
     var selectedContact:CNContact?
@@ -45,30 +45,50 @@ final class ContactListVM:NSObject {
             })
     }
     
-    //Grouping existed contact list and divide into sections.
-    func groupContactListItems(){
+    func fetchContactsFromDevice(){
+        let contactManager = ContactManager.init(contactsInDevice: [Contact](), contacts: [CNContact](), contactStore: CNContactStore())
+        contactsInDevice = contactManager.fetchContactListFromDevice()
+    }
+    
+    func prepareContactList(){
+        let authorizationStatus = CNContactStore.authorizationStatus(for: .contacts)
+        
         let employeeManager = EmployeeManager(employees: employees)
-        let uniqueEmployees = employeeManager.getUniqueEmployees()
+        contactList = getGroupedContactList(employeeManager: employeeManager, employees: employees)
         
-        let groupedDictionary = Dictionary(grouping: uniqueEmployees, by: {String($0.prefix(1))})
-        let keys = groupedDictionary.keys.sorted()
-        var empthyContactList = [CNContact]()
-        empthyContactList.append(CNContact())
-        
-        contactList = keys.map{ ContactListSection(letter: $0, names: groupedDictionary[$0]!.sorted(), isInDevice: [false], contact: empthyContactList, employee: employees) }
-        
-        //checkContactExistanceInDevice
-        for i in 0..<contactList.count{
-            for j in 0..<contactList[i].names.count{
-                for k in 0..<contactsInDevice.count{
-                    if contactList[i].names[j].caseInsensitiveCompare(contactsInDevice[k].fullName) == .orderedSame{
-                        contactList[i].isInDevice[j] = true
-                        contactList[i].contact[j] = contactsInDevice[k].contact
-                    }
-                }
+        if authorizationStatus == .authorized {
+            fetchContactsFromDevice()
+            if var contactsInDevice = contactsInDevice {
+                compareContractLists(&contactsInDevice, &contactList)
             }
         }
         
         untouchedList = contactList
+    }
+    
+    //inout provides mutating parameters
+    func compareContractLists(_ inDeviceContracts: inout [Contact], _ downloadedContracts: inout [ContactListSection]){
+        for i in 0..<downloadedContracts.count{
+            for j in 0..<downloadedContracts[i].names.count{
+                for k in 0..<inDeviceContracts.count{
+                    if downloadedContracts[i].names[j].caseInsensitiveCompare(inDeviceContracts[k].fullName) == .orderedSame{
+                        downloadedContracts[i].isInDevice[j] = true
+                        downloadedContracts[i].contact[j] = inDeviceContracts[k].contact
+                    }
+                }
+            }
+        }
+    }
+    
+    //Grouping existed contact list and divide into sections.
+    func getGroupedContactList(employeeManager: EmployeeManager, employees: [Employee]) -> [ContactListSection]{
+        let uniqueEmployees = employeeManager.getUniqueEmployees()
+        
+        let groupedDictionary = Dictionary(grouping: uniqueEmployees, by: {String($0.prefix(1))})
+        let keys = groupedDictionary.keys.sorted()
+        var emptyContactList = [CNContact]()
+        emptyContactList.append(CNContact())
+        
+        return keys.map{ ContactListSection(letter: $0, names: groupedDictionary[$0]!.sorted(), isInDevice: [false], contact: emptyContactList, employee: employees) }
     }
 }

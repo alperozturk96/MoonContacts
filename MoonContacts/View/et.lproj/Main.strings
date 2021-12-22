@@ -1,0 +1,12 @@
+
+/* Class = "UISearchBar"; placeholder = "Letter"; ObjectID = "6Wl-rg-2fX"; */
+"6Wl-rg-2fX.placeholder" = "Kiri";
+
+/* Class = "UINavigationItem"; title = "MoonContacts"; ObjectID = "9fT-oL-K1m"; */
+"9fT-oL-K1m.title" = "MoonContacts";
+
+/* Class = "UILabel"; text = "Projects"; ObjectID = "C0n-YS-pbY"; */
+"C0n-YS-pbY.text" = "Projektid";
+
+/* Class = "UIButton"; normalTitle = "Open Contact"; ObjectID = "spG-ju-Oir"; */
+"spG-ju-Oir.normalTitle" = "Avage Kontakt";

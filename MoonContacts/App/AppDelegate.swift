@@ -6,15 +6,21 @@
 //
 
 import UIKit
+import Contacts
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        askUserPermissionToAccessContactList()
         return true
+    }
+    
+    func askUserPermissionToAccessContactList(){
+        let store = CNContactStore()
+        let contractProvider = ContractProvider.init(store: store)
+        contractProvider.askUserPermissionToAccessContactList()
     }
 
     // MARK: UISceneSession Lifecycle

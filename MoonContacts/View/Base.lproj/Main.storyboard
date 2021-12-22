@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contact ListVC-->
+        <!--MoonContacts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ContactListVC" customModule="MoonContacts" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ASF-hd-OOB" secondAttribute="bottom" id="r00-O0-R3N"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9fT-oL-K1m"/>
+                    <navigationItem key="navigationItem" title="MoonContacts" id="9fT-oL-K1m"/>
                     <connections>
                         <outlet property="employeeTableView" destination="ASF-hd-OOB" id="agT-Yl-dEb"/>
                         <outlet property="searchBar" destination="6Wl-rg-2fX" id="mbE-Gc-19E"/>
@@ -62,7 +62,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ci1-rZ-P17" userLabel="contentView">
                                         <rect key="frame" x="0.0" y="0.0" width="367" height="900"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbL-8k-HI6" userLabel="emailView">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbL-8k-HI6" userLabel="emailView">
                                                 <rect key="frame" x="15" y="160" width="337" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="rXk-8C-0HH">
@@ -95,7 +95,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0t-DU-XMD" userLabel="phoneNumberView">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0t-DU-XMD" userLabel="phoneNumberView">
                                                 <rect key="frame" x="15" y="220" width="337" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_phone" translatesAutoresizingMaskIntoConstraints="NO" id="qSH-U0-14E">
@@ -128,7 +128,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCr-GO-qMZ" userLabel="positionView">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCr-GO-qMZ" userLabel="positionView">
                                                 <rect key="frame" x="15" y="100" width="337" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_suitcase" translatesAutoresizingMaskIntoConstraints="NO" id="Ngr-2e-0Kp">
@@ -266,10 +266,13 @@
                     <connections>
                         <outlet property="btnOpenContract" destination="spG-ju-Oir" id="9Ke-bh-dua"/>
                         <outlet property="emailLabel" destination="d7r-ZU-eXx" id="yit-A3-1CO"/>
+                        <outlet property="emailView" destination="lbL-8k-HI6" id="dLo-h8-DRN"/>
                         <outlet property="experienceLabel" destination="C0n-YS-pbY" id="cqZ-jv-pUs"/>
                         <outlet property="fullName" destination="fKw-oy-8rL" id="kGV-3P-sWZ"/>
+                        <outlet property="phoneAreaView" destination="qSH-U0-14E" id="b3Q-w5-ChC"/>
                         <outlet property="phoneLabel" destination="7P1-MD-0gG" id="zOr-tl-pMO"/>
                         <outlet property="positionLabel" destination="1Gh-UP-hTd" id="H7g-Uw-HM3"/>
+                        <outlet property="positionView" destination="iCr-GO-qMZ" id="tAd-Ve-fLa"/>
                         <outlet property="projectsCV" destination="J5W-Bz-8cf" id="45d-9h-m3H"/>
                         <outlet property="projectsCVHeight" destination="dH7-9L-Gq1" id="yNV-SS-erd"/>
                     </connections>

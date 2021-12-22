@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  MoonContacts
+
+  Created by Alper Öztürk on 22.12.2021.
+  
+*/
+
+"no_project" = "No Project Found";
+"error" = "Error";
+"error_message" = "An Error occurred while fetching datas.";
+"retry" = "Retry";
+"cancel" = "Cancel";
+"pull_to_refresh" = "Pull To Refresh";
+"in_contact" = "In Contact";

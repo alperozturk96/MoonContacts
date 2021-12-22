@@ -7,8 +7,6 @@
 
 import Combine
 import UIKit
-import Contacts
-import ContactsUI
 
 class ContactListVC: BaseVC {
     
@@ -23,9 +21,7 @@ class ContactListVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        showActivityIndicator()
-        askUserPermissionToAccessContactList()
+        setupUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -37,18 +33,7 @@ class ContactListVC: BaseVC {
         }
     }
     
-    func askUserPermissionToAccessContactList(){
-        let store = CNContactStore()
-        let authorizationStatus = CNContactStore.authorizationStatus(for: .contacts)
-      
-        let contractProvider = ContractProvider.init(store: store, authorizationStatus: authorizationStatus)
-        contractProvider.askUserPermissionToAccessContactList {
-            self.setupUI()
-        }
-    }
-    
     func setupUI(){
-        VM.contactsInDevice = ContactManager().fetchContactListFromDevice()
         addPullToRefreshToEmployeeTableView()
         fetchEmployeeList()
     }
@@ -59,7 +44,7 @@ class ContactListVC: BaseVC {
     }
     
     func addPullToRefreshToEmployeeTableView(){
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull To Refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: "pull_to_refresh".localized)
         refreshControl.addTarget(self, action: #selector(refreshEmployeeTableView(_:)), for: .valueChanged)
         employeeTableView.addSubview(refreshControl)
     }
@@ -72,7 +57,7 @@ class ContactListVC: BaseVC {
     }
     
     func updateEmployeeTableView(){
-        VM.groupContactListItems()
+        VM.prepareContactList()
         initEmployeeTableView()
         searchBar.isUserInteractionEnabled = true
         
@@ -84,27 +69,30 @@ class ContactListVC: BaseVC {
     }
     
     private func showErrorAlert() {
-        let errorAlert = UIAlertController(title: "Error", message: "An Error occurred while fetching datas.", preferredStyle: .alert)
+        let errorAlert = UIAlertController(title: "error".localized, message: "error_message".localized, preferredStyle: .alert)
         
-        errorAlert.addAction(UIAlertAction(title: "Retry", style: .default) { [weak self] action -> Void in
+        errorAlert.addAction(UIAlertAction(title: "retry".localized, style: .default) { [weak self] action -> Void in
             guard let self = self else { return }
             self.fetchEmployeeList()
         })
         
-        errorAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        errorAlert.addAction(UIAlertAction(title: "cancel".localized, style: .cancel, handler: nil))
         
         present(errorAlert, animated: true, completion: nil)
     }
     
     private func fetchEmployeeList(){
+        showActivityIndicator()
         let publisher = API.tallinEmployeeList()
         
         tallinEmployeeList = VM.fetchTallinEmployeeList(publisher: publisher, complicated: { [weak self] response in
             guard let self = self else { return }
-            self.VM.employees = response.employees!
+            guard let employees = response.employees else { return }
+            self.VM.employees = employees
             self.fetchTartuEmployeeList()
         }, error: { [weak self] error in
             guard let self = self else {return}
+            self.hideActivityIndicator()
             self.showErrorAlert()
             print("error catched at tartuEmployeeList: ",error)
         })
@@ -115,11 +103,13 @@ class ContactListVC: BaseVC {
         
         tartuEmployeeList = VM.fetchTartuEmployeeList(publisher: publisher, complicated: { [weak self] response in
             guard let self = self else { return }
-            self.VM.employees += response.employees!
+            guard let employees = response.employees else { return }
+            self.VM.employees += employees
             self.updateEmployeeTableView()
         }, error: { [weak self] error in
             guard let self = self else {return}
             self.showErrorAlert()
+            self.hideActivityIndicator()
             print("error catched at tartuEmployeeList: ",error)
         })
     }
@@ -140,14 +130,3 @@ extension ContactListVC: UISearchBarDelegate {
         employeeTableView.reloadData()
     }
 }
-
-extension ContactListVC: CNContactViewControllerDelegate{
-    func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {
-        viewController.dismiss(animated: true, completion: nil)
-    }
-    
-    func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
-        return true
-    }
-}
-
