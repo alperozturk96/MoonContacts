@@ -12,3 +12,11 @@ struct Contact {
     let contact:CNContact
     let fullName: String
 }
+
+
+struct ContactDetail {
+    let fullName: String
+    let email:String
+    let phone:String
+    let position:String
+}

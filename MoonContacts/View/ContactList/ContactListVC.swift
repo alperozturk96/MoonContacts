@@ -8,7 +8,7 @@
 import Combine
 import UIKit
 
-class ContactListVC: BaseVC {
+final class ContactListVC: BaseVC {
     
     @IBOutlet private var searchBar: UISearchBar!
     @IBOutlet weak var employeeTableView: UITableView!
@@ -124,7 +124,9 @@ extension ContactListVC: UISearchBarDelegate {
         }
         else
         {
-            VM.contactList = VM.contactList.filter({$0.letter == searchText})
+            VM.contactList = VM.contactList.filter({
+                return $0.names.joined().contains(searchText)
+            })
         }
         
         employeeTableView.reloadData()

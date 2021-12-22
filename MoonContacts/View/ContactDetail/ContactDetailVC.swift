@@ -8,7 +8,7 @@
 import Contacts
 import UIKit
 
-class ContactDetailVC: BaseVC {
+final class ContactDetailVC: BaseVC {
     
     @IBOutlet private weak var positionView: UIView!
     @IBOutlet private weak var emailView: UIView!
@@ -28,8 +28,25 @@ class ContactDetailVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadContactDetail()
-        checkExistanceOfContact()
+        if let employee = employee {
+            setupUI(employee: employee)
+        }
+       
+        if let contact = contact {
+            checkExistanceOfContact(contact: contact)
+        }
+    }
+    
+    func setupUI(employee:Employee){
+        let contactDetail = ContactDetail.init(fullName: employee.fullName() ?? "",
+                                               email: employee.contact_details?.email ?? "",
+                                               phone: employee.contact_details?.phone ?? "",
+                                               position: employee.position ?? "")
+    
+        
+        loadContactDetail(contact: contactDetail)
+        checkVisibilityOfViews()
+        checkVisibilityOfProjectArea(projects: employee.projects)
     }
     
     func initProjectCV(){
@@ -38,13 +55,11 @@ class ContactDetailVC: BaseVC {
         projectsCV.delegate = self
     }
     
-    func checkExistanceOfContact(){
-        if let contact = contact {
-            btnOpenContract.isHidden = false
+    func checkExistanceOfContact(contact:CNContact){
+        btnOpenContract.isHidden = false
             
-            btnOpenContract.addAction {
-                self.openNativeContactDetailScreen(contact: contact)
-            }
+        btnOpenContract.addAction {
+            self.openNativeContactDetailScreen(contact: contact)
         }
     }
     
@@ -62,19 +77,15 @@ class ContactDetailVC: BaseVC {
         }
     }
     
-    func loadContactDetail(){
-        guard let employee = employee else { return }
-        guard let firstName = employee.fname else { return }
-        guard let lastName = employee.lname else { return }
-
-        fullName.text = lastName + " " + firstName
-        phoneLabel.text = employee.contact_details?.phone
-        emailLabel.text = employee.contact_details?.email
-        positionLabel.text = employee.position
-        
-        checkVisibilityOfViews()
-        
-        if employee.projects == nil {
+    func loadContactDetail(contact:ContactDetail){
+        fullName.text = contact.fullName
+        phoneLabel.text = contact.phone
+        emailLabel.text = contact.email
+        positionLabel.text = contact.position
+    }
+    
+    func checkVisibilityOfProjectArea(projects:[String]?){
+        if projects == nil {
             projectsCVHeight.constant = 0
             experienceLabel.text = "no_project".localized
             projectsCV.isHidden = true
@@ -84,4 +95,5 @@ class ContactDetailVC: BaseVC {
             initProjectCV()
         }
     }
+    
 }

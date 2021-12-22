@@ -10,7 +10,7 @@ import Contacts
 
 struct ContactListSection {
     let letter : String
-    let names : [String]
+    var names : [String]
     var isInDevice:[Bool]
     var contact:[CNContact]
     var employee:[Employee]
