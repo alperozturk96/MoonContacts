@@ -5,44 +5,46 @@
 //  Created by Alper Öztürk on 20.10.2021.
 //
 
-import Foundation
 import Combine
 import ContactsUI
 import Contacts
 
-final class ContactListVM:NSObject {
+final class ContactListVM {
     
     var contactsInDevice:[Contact]? = nil
     var employees = [Employee]()
     var selectedEmployee:Employee?
     var selectedContact:CNContact?
     var contactList = [ContactListSection]()
-    var untouchedList:[ContactListSection] = [ContactListSection]()
+    let loadingIndicator = Box(true) // Default value is true because app as soon as it starts make api call.
+    var untouchedList:[ContactListSection] = [ContactListSection]() // It holds default list.
     
-    func fetchTartuEmployeeList(publisher: AnyPublisher<Employees, Error>, complicated: @escaping (_ employeeList:Employees)->(), error: @escaping (_ error:Any)->()) -> AnyCancellable
-    {
-        return publisher
-            .sink(receiveCompletion: { result in
-                switch result {
-                case .finished: print("tartuEmployeeList fetched")
-                case .failure(let err): error("error caught at tartuEmployeeList: \(err)")
-                }
-            }, receiveValue: { response in
-                complicated(response)
-            })
-    }
+    var cancellables = Set<AnyCancellable>() //Cancellables are automatically calls cancel due to Apple documentation. So no worries for memory leak.
     
-    func fetchTallinEmployeeList(publisher: AnyPublisher<Employees, Error>, complicated: @escaping (_ employeeList:Employees)->(), error: @escaping (_ error:Any)->()) -> AnyCancellable
+    func fetchTallinEmployeeList(onSuccess: @escaping (_ employeeList:Employees)->(), onFailure: @escaping (_ error:Any)->())
     {
-        return publisher
+        API.tallinEmployeeList()
             .sink(receiveCompletion: { result in
                 switch result {
                 case .finished: print("tallinEmployeeList fetched")
-                case .failure(let err): error("error caught at tallinEmployeeList: \(err)")
+                case .failure(let err): onFailure("error caught at tallinEmployeeList: \(err)")
                 }
             }, receiveValue: { response in
-                complicated(response)
-            })
+                onSuccess(response)
+            }).store(in: &cancellables)
+    }
+    
+    func fetchTartuEmployeeList(onSuccess: @escaping (_ employeeList:Employees)->(), onFailure: @escaping (_ error:Any)->())
+    {
+       API.tartuEmployeeList()
+            .sink(receiveCompletion: { result in
+                switch result {
+                case .finished:  print("tartuEmployeeList fetched")
+                case .failure(let err): onFailure("error caught at tartuEmployeeList: \(err)")
+                }
+            }, receiveValue: { response in
+                onSuccess(response)
+            }).store(in: &cancellables)
     }
     
     func fetchContactsFromDevice(){

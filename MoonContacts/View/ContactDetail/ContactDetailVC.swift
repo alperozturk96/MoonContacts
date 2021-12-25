@@ -64,17 +64,9 @@ final class ContactDetailVC: BaseVC {
     }
     
     func checkVisibilityOfViews(){
-        if phoneLabel.text?.count ?? 0 > 0{
-            phoneAreaView.isHidden = false
-        }
-        
-        if emailLabel.text?.count ?? 0 > 0{
-            emailView.isHidden = false
-        }
-        
-        if positionLabel.text?.count ?? 0 > 0{
-            positionView.isHidden = false
-        }
+        phoneAreaView.isHidden = !(phoneLabel.text?.count ?? 0 > 0)
+        emailView.isHidden = !(emailLabel.text?.count ?? 0 > 0)
+        positionView.isHidden = !(positionLabel.text?.count ?? 0 > 0)
     }
     
     func loadContactDetail(contact:ContactDetail){

@@ -31,6 +31,7 @@
 		925392AB277223AF009A3712 /* ContractListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AA277223AF009A3712 /* ContractListTableView.swift */; };
 		925392AD27722500009A3712 /* ContractProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AC27722500009A3712 /* ContractProvider.swift */; };
 		925392B127722798009A3712 /* ContractDetailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392B027722798009A3712 /* ContractDetailCollectionView.swift */; };
+		925FEABA2777211B00D79A51 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FEAB92777211B00D79A51 /* Box.swift */; };
 		928469C02772FB01000C3DE7 /* EmployeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469BF2772FB01000C3DE7 /* EmployeeManager.swift */; };
 		928469C32773073B000C3DE7 /* MockResultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C22773073B000C3DE7 /* MockResultWrapper.swift */; };
 		928469C527730765000C3DE7 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C427730765000C3DE7 /* MockURLProtocol.swift */; };
@@ -79,6 +80,7 @@
 		925392AA277223AF009A3712 /* ContractListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractListTableView.swift; sourceTree = "<group>"; };
 		925392AC27722500009A3712 /* ContractProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractProvider.swift; sourceTree = "<group>"; };
 		925392B027722798009A3712 /* ContractDetailCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDetailCollectionView.swift; sourceTree = "<group>"; };
+		925FEAB92777211B00D79A51 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		928469BF2772FB01000C3DE7 /* EmployeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeManager.swift; sourceTree = "<group>"; };
 		928469C22773073B000C3DE7 /* MockResultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResultWrapper.swift; sourceTree = "<group>"; };
 		928469C427730765000C3DE7 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				66D99061271FD25C007BBA65 /* ContactManager.swift */,
 				66C1161F272172C600E8CF51 /* BigButton.swift */,
 				66C45DD02722FEDF0054D7B1 /* AppConst.swift */,
+				925FEAB92777211B00D79A51 /* Box.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				6661771F271EE63400A990DB /* API.swift in Sources */,
 				66617721271EE74A00A990DB /* ContactListM.swift in Sources */,
 				925392B127722798009A3712 /* ContractDetailCollectionView.swift in Sources */,
+				925FEABA2777211B00D79A51 /* Box.swift in Sources */,
 				66617703271EDD7F00A990DB /* SceneDelegate.swift in Sources */,
 				66617725271F090C00A990DB /* ArrayExtensions.swift in Sources */,
 			);

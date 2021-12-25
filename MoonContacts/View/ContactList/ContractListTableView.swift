@@ -13,7 +13,7 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let employeeManager = EmployeeManager(employees: VM.employees)
-        VM.selectedEmployee =   employeeManager.findSelectedEmployee(fullName: VM.contactList[indexPath.section].names[indexPath.row])
+        VM.selectedEmployee =  employeeManager.findSelectedEmployee(fullName: VM.contactList[indexPath.section].names[indexPath.row])
         
         let isRegisteredInDevice = VM.contactList[indexPath.section].isInDevice[safe:indexPath.row] ?? false
         
@@ -39,7 +39,6 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
         return VM.contactList.count
     }
     
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return VM.contactList[section].letter
     }
@@ -48,7 +47,6 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
         guard let cell = (employeeTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.employeeTableViewIdentifier) as? ContactListTableCell) else {
             return UITableViewCell()
         }
-        
         
         let section = VM.contactList[indexPath.section]
         let fullName = section.names[indexPath.row]
@@ -65,10 +63,7 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
         
         cell.textLabel?.text = fullName
         
-        
-        let contact = section.contact[safe:indexPath.row]
-        
-        if let contact = contact{
+        if let contact = section.contact[safe:indexPath.row]{
             cell.buttonTapCallback = {
                 self.openNativeContactDetailScreen(contact: contact)
             }

@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  ContactListVC.swift
 //  MoonContacts
 //
-//  Created by Alper Öztürk on 19.10.2021.
+//  Created by Alper Öztürk on 23.12.2021.
 //
 
 import Combine
@@ -15,9 +15,6 @@ final class ContactListVC: BaseVC {
     
     let VM = ContactListVM()
     let refreshControl = UIRefreshControl()
-    
-    private var tallinEmployeeList:AnyCancellable?
-    private var tartuEmployeeList:AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +31,7 @@ final class ContactListVC: BaseVC {
     }
     
     func setupUI(){
+        observeLoadingIndicator()
         addPullToRefreshToEmployeeTableView()
         fetchEmployeeList()
     }
@@ -41,6 +39,20 @@ final class ContactListVC: BaseVC {
     @objc func refreshEmployeeTableView(_ sender: AnyObject) {
         VM.employees.removeAll()
         fetchEmployeeList()
+    }
+    
+    //Note: This is FirstParty Solution RxSwift provides similar function also.
+    func observeLoadingIndicator(){
+        VM.loadingIndicator.bind { [weak self] loading in
+            guard let self = self else { return }
+            if loading {
+                self.showActivityIndicator()
+            }
+            else
+            {
+                self.hideActivityIndicator()
+            }
+        }
     }
     
     func addPullToRefreshToEmployeeTableView(){
@@ -63,7 +75,6 @@ final class ContactListVC: BaseVC {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.employeeTableView.reloadData()
-            self.hideActivityIndicator()
             self.refreshControl.endRefreshing()
         }
     }
@@ -82,38 +93,33 @@ final class ContactListVC: BaseVC {
     }
     
     private func fetchEmployeeList(){
-        showActivityIndicator()
-        let publisher = API.tallinEmployeeList()
-        
-        tallinEmployeeList = VM.fetchTallinEmployeeList(publisher: publisher, complicated: { [weak self] response in
+        VM.fetchTallinEmployeeList { [weak self] employeeList in // weak reference usage for preventing memory leak and help ARC.
             guard let self = self else { return }
-            guard let employees = response.employees else { return }
+            guard let employees = employeeList.employees else { return }
             self.VM.employees = employees
             self.fetchTartuEmployeeList()
-        }, error: { [weak self] error in
+        } onFailure: { [weak self] error in
             guard let self = self else {return}
-            self.hideActivityIndicator()
+            self.VM.loadingIndicator.value = false
             self.showErrorAlert()
-            print("error catched at tartuEmployeeList: ",error)
-        })
+            print("error catched at tallinEmployeeList: ",error)
+        }
     }
     
     private func fetchTartuEmployeeList(){
-        let publisher = API.tartuEmployeeList()
-        
-        tartuEmployeeList = VM.fetchTartuEmployeeList(publisher: publisher, complicated: { [weak self] response in
+        VM.fetchTartuEmployeeList { [weak self] employeeList in
             guard let self = self else { return }
-            guard let employees = response.employees else { return }
+            guard let employees = employeeList.employees else { return }
             self.VM.employees += employees
             self.updateEmployeeTableView()
-        }, error: { [weak self] error in
+            self.VM.loadingIndicator.value = false
+        } onFailure: { [weak self] error in
             guard let self = self else {return}
+            self.VM.loadingIndicator.value = false
             self.showErrorAlert()
-            self.hideActivityIndicator()
             print("error catched at tartuEmployeeList: ",error)
-        })
+        }
     }
-    
 }
 
 extension ContactListVC: UISearchBarDelegate {
