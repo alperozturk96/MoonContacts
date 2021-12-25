@@ -35,7 +35,6 @@
 		928469C02772FB01000C3DE7 /* EmployeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469BF2772FB01000C3DE7 /* EmployeeManager.swift */; };
 		928469C32773073B000C3DE7 /* MockResultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C22773073B000C3DE7 /* MockResultWrapper.swift */; };
 		928469C527730765000C3DE7 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C427730765000C3DE7 /* MockURLProtocol.swift */; };
-		928469C8277307E3000C3DE7 /* ContractListVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C7277307E3000C3DE7 /* ContractListVCTests.swift */; };
 		928469CC27731239000C3DE7 /* EmployeeeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469CB27731239000C3DE7 /* EmployeeeManagerTests.swift */; };
 		928469D1277318FE000C3DE7 /* ContractListVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469D0277318FE000C3DE7 /* ContractListVMTests.swift */; };
 		92AB1B07277354B200E9D86D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92AB1B09277354B200E9D86D /* Localizable.strings */; };
@@ -84,7 +83,6 @@
 		928469BF2772FB01000C3DE7 /* EmployeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeManager.swift; sourceTree = "<group>"; };
 		928469C22773073B000C3DE7 /* MockResultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResultWrapper.swift; sourceTree = "<group>"; };
 		928469C427730765000C3DE7 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
-		928469C7277307E3000C3DE7 /* ContractListVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractListVCTests.swift; sourceTree = "<group>"; };
 		928469CB27731239000C3DE7 /* EmployeeeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeeManagerTests.swift; sourceTree = "<group>"; };
 		928469D0277318FE000C3DE7 /* ContractListVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractListVMTests.swift; sourceTree = "<group>"; };
 		92AB1B032773542700E9D86D /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = et.lproj/Main.strings; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 		928469C6277307B7000C3DE7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				928469C7277307E3000C3DE7 /* ContractListVCTests.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -432,7 +429,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				928469C8277307E3000C3DE7 /* ContractListVCTests.swift in Sources */,
 				928469CC27731239000C3DE7 /* EmployeeeManagerTests.swift in Sources */,
 				928469C527730765000C3DE7 /* MockURLProtocol.swift in Sources */,
 				928469D1277318FE000C3DE7 /* ContractListVMTests.swift in Sources */,

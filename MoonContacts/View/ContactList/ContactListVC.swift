@@ -93,7 +93,9 @@ final class ContactListVC: BaseVC {
     }
     
     private func fetchEmployeeList(){
-        VM.fetchTallinEmployeeList { [weak self] employeeList in // weak reference usage for preventing memory leak and help ARC.
+        let publisher = API.tallinEmployeeList()
+        
+        VM.fetchTallinEmployeeList(publisher) { [weak self] employeeList in // weak reference usage for preventing memory leak and help ARC.
             guard let self = self else { return }
             guard let employees = employeeList.employees else { return }
             self.VM.employees = employees
@@ -107,7 +109,9 @@ final class ContactListVC: BaseVC {
     }
     
     private func fetchTartuEmployeeList(){
-        VM.fetchTartuEmployeeList { [weak self] employeeList in
+        let publisher = API.tartuEmployeeList()
+        
+        VM.fetchTartuEmployeeList(publisher) { [weak self] employeeList in
             guard let self = self else { return }
             guard let employees = employeeList.employees else { return }
             self.VM.employees += employees
