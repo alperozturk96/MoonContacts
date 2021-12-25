@@ -14,6 +14,7 @@ class EmployeeeManagerTests: XCTestCase {
     var sut:EmployeeManager!
 
     override func setUp() {
+        //Arrange
         employee = Employee.init(fname: "Albert",
                                      lname: "Eeinstein",
                                      position: "Physicist",

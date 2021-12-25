@@ -12,35 +12,35 @@ import ContactsUI
 extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let employeeManager = EmployeeManager(employees: VM.employees)
-        VM.selectedEmployee =  employeeManager.findSelectedEmployee(fullName: VM.contactList[indexPath.section].names[indexPath.row])
+        let employeeManager = EmployeeManager(employees: contactListVM.employees)
+        contactListVM.selectedEmployee =  employeeManager.findSelectedEmployee(fullName: contactListVM.contactList[indexPath.section].names[indexPath.row])
         
-        let isRegisteredInDevice = VM.contactList[indexPath.section].isInDevice[safe:indexPath.row] ?? false
+        let isRegisteredInDevice = contactListVM.contactList[indexPath.section].isInDevice[safe:indexPath.row] ?? false
         
         if isRegisteredInDevice {
-            VM.selectedContact = VM.contactList[indexPath.section].contact[safe: indexPath.row]
+            contactListVM.selectedContact = contactListVM.contactList[indexPath.section].contact[safe: indexPath.row]
         }
         else
         {
-            VM.selectedContact = nil
+            contactListVM.selectedContact = nil
         }
         
         
-        if VM.selectedEmployee != nil {
+        if contactListVM.selectedEmployee != nil {
             performSegue(withIdentifier: SegueIdentifiers.contactListToContactDetail, sender: nil)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return VM.contactList[section].names.count
+        return contactListVM.contactList[section].names.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return VM.contactList.count
+        return contactListVM.contactList.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return VM.contactList[section].letter
+        return contactListVM.contactList[section].letter
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,7 +48,7 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        let section = VM.contactList[indexPath.section]
+        let section = contactListVM.contactList[indexPath.section]
         let fullName = section.names[indexPath.row]
         let isRegisteredInDevice = section.isInDevice[safe:indexPath.row]
         

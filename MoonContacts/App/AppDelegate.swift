@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func askUserPermissionToAccessContactList(){
         let store = CNContactStore()
-        let contractProvider = ContractProvider.init(store: store)
+        let contractProvider = ContactPermissionProvider.init(store: store)
         contractProvider.askUserPermissionToAccessContactList()
     }
 

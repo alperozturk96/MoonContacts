@@ -9,7 +9,7 @@
 import Contacts
 import ContactsUI
 
-final class ContractProvider {
+final class ContactPermissionProvider {
     var store: CNContactStore
   
     required init(store: CNContactStore) {

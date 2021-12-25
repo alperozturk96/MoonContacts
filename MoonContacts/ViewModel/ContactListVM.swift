@@ -5,7 +5,7 @@
 //  Created by Alper Öztürk on 20.10.2021.
 //
 
-import Combine
+
 import ContactsUI
 import Contacts
 
@@ -18,36 +18,6 @@ final class ContactListVM {
     var contactList = [ContactListSection]()
     let loadingIndicator = Box(true) // Default value is true because app as soon as it starts make api call.
     var untouchedList:[ContactListSection] = [ContactListSection]() // It holds default list.
-    
-    var cancellables = Set<AnyCancellable>() //Cancellables are automatically calls cancel due to Apple documentation. So no worries for memory leak.
-    
-    
-    // Passing publisher as parameter provides us to make fake network call for unit test.
-    func fetchTallinEmployeeList(_ publisher: AnyPublisher<Employees, Error>,onSuccess: @escaping (_ employeeList:Employees)->(), onFailure: @escaping (_ error:Any)->())
-    {
-        publisher
-            .sink(receiveCompletion: { result in
-                switch result {
-                case .finished: print("tallinEmployeeList fetched")
-                case .failure(let err): onFailure("error caught at tallinEmployeeList: \(err)")
-                }
-            }, receiveValue: { response in
-                onSuccess(response)
-            }).store(in: &cancellables)
-    }
-    
-    func fetchTartuEmployeeList(_ publisher: AnyPublisher<Employees, Error>,onSuccess: @escaping (_ employeeList:Employees)->(), onFailure: @escaping (_ error:Any)->())
-    {
-       publisher
-            .sink(receiveCompletion: { result in
-                switch result {
-                case .finished:  print("tartuEmployeeList fetched")
-                case .failure(let err): onFailure("error caught at tartuEmployeeList: \(err)")
-                }
-            }, receiveValue: { response in
-                onSuccess(response)
-            }).store(in: &cancellables)
-    }
     
     func fetchContactsFromDevice(){
         let contactManager = ContactManager.init(contactsInDevice: [Contact](), contacts: [CNContact](), contactStore: CNContactStore())

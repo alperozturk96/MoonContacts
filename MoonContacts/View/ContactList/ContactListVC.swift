@@ -13,7 +13,8 @@ final class ContactListVC: BaseVC {
     @IBOutlet private var searchBar: UISearchBar!
     @IBOutlet weak var employeeTableView: UITableView!
     
-    let VM = ContactListVM()
+    let contactListVM = ContactListVM()
+    let contactListProviderVM = ContactListProviderVM()
     let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -24,8 +25,8 @@ final class ContactListVC: BaseVC {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifiers.contactListToContactDetail {
             if let destinationVC = segue.destination as? ContactDetailVC {
-                destinationVC.employee = VM.selectedEmployee
-                destinationVC.contact = VM.selectedContact
+                destinationVC.employee = contactListVM.selectedEmployee
+                destinationVC.contact = contactListVM.selectedContact
             }
         }
     }
@@ -37,13 +38,13 @@ final class ContactListVC: BaseVC {
     }
   
     @objc func refreshEmployeeTableView(_ sender: AnyObject) {
-        VM.employees.removeAll()
+        contactListVM.employees.removeAll()
         fetchEmployeeList()
     }
     
     //Note: This is FirstParty Solution RxSwift provides similar function also.
     func observeLoadingIndicator(){
-        VM.loadingIndicator.bind { [weak self] loading in
+        contactListVM.loadingIndicator.bind { [weak self] loading in
             guard let self = self else { return }
             if loading {
                 self.showActivityIndicator()
@@ -69,7 +70,7 @@ final class ContactListVC: BaseVC {
     }
     
     func updateEmployeeTableView(){
-        VM.prepareContactList()
+        contactListVM.prepareContactList()
         initEmployeeTableView()
         searchBar.isUserInteractionEnabled = true
         
@@ -95,14 +96,14 @@ final class ContactListVC: BaseVC {
     private func fetchEmployeeList(){
         let publisher = API.tallinEmployeeList()
         
-        VM.fetchTallinEmployeeList(publisher) { [weak self] employeeList in // weak reference usage for preventing memory leak and help ARC.
+        contactListProviderVM.fetchTallinEmployeeList(publisher) { [weak self] employeeList in // weak reference usage for preventing memory leak and help ARC.
             guard let self = self else { return }
             guard let employees = employeeList.employees else { return }
-            self.VM.employees = employees
+            self.contactListVM.employees = employees
             self.fetchTartuEmployeeList()
         } onFailure: { [weak self] error in
             guard let self = self else {return}
-            self.VM.loadingIndicator.value = false
+            self.contactListVM.loadingIndicator.value = false
             self.showErrorAlert()
             print("error catched at tallinEmployeeList: ",error)
         }
@@ -111,15 +112,15 @@ final class ContactListVC: BaseVC {
     private func fetchTartuEmployeeList(){
         let publisher = API.tartuEmployeeList()
         
-        VM.fetchTartuEmployeeList(publisher) { [weak self] employeeList in
+        contactListProviderVM.fetchTartuEmployeeList(publisher) { [weak self] employeeList in
             guard let self = self else { return }
             guard let employees = employeeList.employees else { return }
-            self.VM.employees += employees
+            self.contactListVM.employees += employees
             self.updateEmployeeTableView()
-            self.VM.loadingIndicator.value = false
+            self.contactListVM.loadingIndicator.value = false
         } onFailure: { [weak self] error in
             guard let self = self else {return}
-            self.VM.loadingIndicator.value = false
+            self.contactListVM.loadingIndicator.value = false
             self.showErrorAlert()
             print("error catched at tartuEmployeeList: ",error)
         }
@@ -130,11 +131,11 @@ extension ContactListVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty
         {
-            VM.contactList = VM.untouchedList
+            contactListVM.contactList = contactListVM.untouchedList
         }
         else
         {
-            VM.contactList = VM.contactList.filter({
+            contactListVM.contactList = contactListVM.contactList.filter({
                 return $0.names.joined().contains(searchText)
             })
         }

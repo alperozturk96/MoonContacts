@@ -29,9 +29,11 @@
 		66D9906C271FFE80007BBA65 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D9906B271FFE80007BBA65 /* UIButtonExtensions.swift */; };
 		66D9906F27200123007BBA65 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D9906E27200123007BBA65 /* BaseVC.swift */; };
 		925392AB277223AF009A3712 /* ContractListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AA277223AF009A3712 /* ContractListTableView.swift */; };
-		925392AD27722500009A3712 /* ContractProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AC27722500009A3712 /* ContractProvider.swift */; };
+		925392AD27722500009A3712 /* ContactPermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392AC27722500009A3712 /* ContactPermissionProvider.swift */; };
 		925392B127722798009A3712 /* ContractDetailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925392B027722798009A3712 /* ContractDetailCollectionView.swift */; };
 		925FEABA2777211B00D79A51 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FEAB92777211B00D79A51 /* Box.swift */; };
+		925FEABE27773B5200D79A51 /* ContactListProviderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FEABD27773B5200D79A51 /* ContactListProviderVM.swift */; };
+		925FEAC027773BA600D79A51 /* ContactListProviderVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FEABF27773BA600D79A51 /* ContactListProviderVMTests.swift */; };
 		928469C02772FB01000C3DE7 /* EmployeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469BF2772FB01000C3DE7 /* EmployeeManager.swift */; };
 		928469C32773073B000C3DE7 /* MockResultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C22773073B000C3DE7 /* MockResultWrapper.swift */; };
 		928469C527730765000C3DE7 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928469C427730765000C3DE7 /* MockURLProtocol.swift */; };
@@ -57,7 +59,7 @@
 		66617702271EDD7F00A990DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		66617704271EDD7F00A990DB /* ContactListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListVC.swift; sourceTree = "<group>"; };
 		66617707271EDD7F00A990DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		66617709271EDD8100A990DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66617709271EDD8100A990DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = MoonContacts/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		6661770C271EDD8100A990DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6661770E271EDD8100A990DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66617719271EDE0C00A990DB /* ContactDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailVC.swift; sourceTree = "<group>"; };
@@ -77,9 +79,11 @@
 		66D9906B271FFE80007BBA65 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		66D9906E27200123007BBA65 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		925392AA277223AF009A3712 /* ContractListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractListTableView.swift; sourceTree = "<group>"; };
-		925392AC27722500009A3712 /* ContractProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractProvider.swift; sourceTree = "<group>"; };
+		925392AC27722500009A3712 /* ContactPermissionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPermissionProvider.swift; sourceTree = "<group>"; };
 		925392B027722798009A3712 /* ContractDetailCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDetailCollectionView.swift; sourceTree = "<group>"; };
 		925FEAB92777211B00D79A51 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		925FEABD27773B5200D79A51 /* ContactListProviderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListProviderVM.swift; sourceTree = "<group>"; };
+		925FEABF27773BA600D79A51 /* ContactListProviderVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListProviderVMTests.swift; sourceTree = "<group>"; };
 		928469BF2772FB01000C3DE7 /* EmployeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeManager.swift; sourceTree = "<group>"; };
 		928469C22773073B000C3DE7 /* MockResultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResultWrapper.swift; sourceTree = "<group>"; };
 		928469C427730765000C3DE7 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				66D99063271FD43B007BBA65 /* ContactListVM.swift */,
+				925FEABD27773B5200D79A51 /* ContactListProviderVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -179,7 +184,7 @@
 			children = (
 				66617704271EDD7F00A990DB /* ContactListVC.swift */,
 				925392AA277223AF009A3712 /* ContractListTableView.swift */,
-				925392AC27722500009A3712 /* ContractProvider.swift */,
+				925392AC27722500009A3712 /* ContactPermissionProvider.swift */,
 				928469BF2772FB01000C3DE7 /* EmployeeManager.swift */,
 			);
 			path = ContactList;
@@ -281,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				928469D0277318FE000C3DE7 /* ContractListVMTests.swift */,
+				925FEABF27773BA600D79A51 /* ContactListProviderVMTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -408,7 +414,7 @@
 				66C11620272172C600E8CF51 /* BigButton.swift in Sources */,
 				66D99068271FEC51007BBA65 /* ContactListSection.swift in Sources */,
 				66D9906A271FEC71007BBA65 /* Contact.swift in Sources */,
-				925392AD27722500009A3712 /* ContractProvider.swift in Sources */,
+				925392AD27722500009A3712 /* ContactPermissionProvider.swift in Sources */,
 				66C45DD12722FEDF0054D7B1 /* AppConst.swift in Sources */,
 				92AB1B0C2773554000E9D86D /* StringExtensions.swift in Sources */,
 				66617701271EDD7F00A990DB /* AppDelegate.swift in Sources */,
@@ -421,6 +427,7 @@
 				925392B127722798009A3712 /* ContractDetailCollectionView.swift in Sources */,
 				925FEABA2777211B00D79A51 /* Box.swift in Sources */,
 				66617703271EDD7F00A990DB /* SceneDelegate.swift in Sources */,
+				925FEABE27773B5200D79A51 /* ContactListProviderVM.swift in Sources */,
 				66617725271F090C00A990DB /* ArrayExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925FEAC027773BA600D79A51 /* ContactListProviderVMTests.swift in Sources */,
 				928469CC27731239000C3DE7 /* EmployeeeManagerTests.swift in Sources */,
 				928469C527730765000C3DE7 /* MockURLProtocol.swift in Sources */,
 				928469D1277318FE000C3DE7 /* ContractListVMTests.swift in Sources */,
@@ -600,6 +608,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -629,6 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
