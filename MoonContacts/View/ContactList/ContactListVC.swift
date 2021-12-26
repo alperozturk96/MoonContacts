@@ -7,6 +7,7 @@
 
 import Combine
 import UIKit
+import Contacts
 
 final class ContactListVC: BaseVC {
     
@@ -141,5 +142,12 @@ extension ContactListVC: UISearchBarDelegate {
         }
         
         employeeTableView.reloadData()
+    }
+}
+
+
+extension ContactListVC: ContactListProtocol{
+    func openContact(_ contact: CNContact) {
+        self.openNativeContactDetailScreen(contact)
     }
 }

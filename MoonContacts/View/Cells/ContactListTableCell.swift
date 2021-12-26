@@ -10,11 +10,13 @@
 
 //
 
-import UIKit
+import UIKit.UITableViewCell
+import Contacts
 
 final class ContactListTableCell: UITableViewCell {
     
-    var buttonTapCallback: () -> ()  = { }
+    weak var delegate: ContactListProtocol?
+    weak var cellContact: CNContact?
     
     let button: UIButton = {
         let btn = UIButton()
@@ -29,8 +31,12 @@ final class ContactListTableCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
       
         contentView.addSubview(button)
+        
+        // If contact is registered on the device, it adds action to related cellButton, so we are preventing multiple firing functions.
         button.addAction {
-            self.buttonTapCallback()
+            if let contact = self.cellContact {
+                self.delegate?.openContact(contact)
+            }
         }
         
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -40,8 +46,11 @@ final class ContactListTableCell: UITableViewCell {
         button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
     }
     
+    func initContact(_ contact:CNContact){
+        cellContact = contact
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

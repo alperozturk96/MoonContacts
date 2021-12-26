@@ -35,7 +35,7 @@ class BaseVC: UIViewController {
         }
     }
     
-    func openNativeContactDetailScreen(contact:CNContact){
+    func openNativeContactDetailScreen(_ contact:CNContact){
         let vc = CNContactViewController(for: contact)
         vc.contactStore = CNContactStore()
        

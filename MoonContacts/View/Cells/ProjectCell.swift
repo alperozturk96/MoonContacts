@@ -5,8 +5,7 @@
 //  Created by Alper Öztürk on 19.10.2021.
 //
 
-import UIKit
-
+import UIKit.UICollectionViewCell
 
 final class ProjectCell: UICollectionViewCell {
     

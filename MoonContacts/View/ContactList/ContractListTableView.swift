@@ -61,12 +61,13 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
             cell.button.isHidden = true
         }
         
+        // Each cell must have textLabel
         cell.textLabel?.text = fullName
-        
+     
+        // If contact exist in device we can set delegate and contact into ContactListTableCell.
         if let contact = section.contact[safe:indexPath.row]{
-            cell.buttonTapCallback = {
-                self.openNativeContactDetailScreen(contact: contact)
-            }
+            cell.initContact(contact)
+            cell.delegate = self
         }
 
         return cell

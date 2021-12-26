@@ -59,7 +59,7 @@ final class ContactDetailVC: BaseVC {
         btnOpenContract.isHidden = false
             
         btnOpenContract.addAction {
-            self.openNativeContactDetailScreen(contact: contact)
+            self.openNativeContactDetailScreen(contact)
         }
     }
     
