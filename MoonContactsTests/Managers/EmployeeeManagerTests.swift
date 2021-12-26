@@ -12,24 +12,24 @@ class EmployeeeManagerTests: XCTestCase {
     
     var employee:Employee!
     var sut:EmployeeManager!
-
+    
     override func setUp() {
         //Arrange
         employee = Employee.init(fname: "Albert",
-                                     lname: "Eeinstein",
-                                     position: "Physicist",
-                                     contact_details: ContactDetails.init(email: "einstein@fx.com", phone: "+314314314314"),
-                                     projects: ["Gravitational Waves"])
+                                 lname: "Eeinstein",
+                                 position: "Physicist",
+                                 contact_details: ContactDetails.init(email: "einstein@fx.com", phone: "+314314314314"),
+                                 projects: ["Gravitational Waves"])
         
         
         sut = EmployeeManager.init(employees: [employee])
     }
-
+    
     override func tearDown() {
         employee = nil
         sut = nil
     }
-
+    
     func testFindSelectedEmployee_WhenGivenNameExistInEmployeeList_ShouldReturnEmployee() {
         //Act
         let fullName = employee.fullName()
@@ -55,5 +55,5 @@ class EmployeeeManagerTests: XCTestCase {
         //Assert
         XCTAssertNil(employee)
     }
-
+    
 }

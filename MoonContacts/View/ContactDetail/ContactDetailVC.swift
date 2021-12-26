@@ -31,7 +31,7 @@ final class ContactDetailVC: BaseVC {
         if let employee = employee {
             setupUI(employee: employee)
         }
-       
+        
         if let contact = contact {
             checkExistanceOfContact(contact: contact)
         }
@@ -42,7 +42,7 @@ final class ContactDetailVC: BaseVC {
                                                email: employee.contact_details?.email ?? "",
                                                phone: employee.contact_details?.phone ?? "",
                                                position: employee.position ?? "")
-    
+        
         
         loadContactDetail(contact: contactDetail)
         checkVisibilityOfViews()
@@ -57,7 +57,7 @@ final class ContactDetailVC: BaseVC {
     
     func checkExistanceOfContact(contact:CNContact){
         btnOpenContract.isHidden = false
-            
+        
         btnOpenContract.addAction {
             self.openNativeContactDetailScreen(contact)
         }

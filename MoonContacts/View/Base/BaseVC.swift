@@ -28,7 +28,7 @@ class BaseVC: UIViewController {
         self.view.addSubview(activityIndicator!)
         activityIndicator?.startAnimating()
     }
-
+    
     func hideActivityIndicator(){
         if (activityIndicator != nil){
             activityIndicator?.stopAnimating()
@@ -38,7 +38,7 @@ class BaseVC: UIViewController {
     func openNativeContactDetailScreen(_ contact:CNContact){
         let vc = CNContactViewController(for: contact)
         vc.contactStore = CNContactStore()
-       
+        
         vc.allowsActions = true
         vc.allowsEditing = true
         navigationController?.pushViewController(vc, animated: true)

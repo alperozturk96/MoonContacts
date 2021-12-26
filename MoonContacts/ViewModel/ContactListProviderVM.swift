@@ -12,8 +12,8 @@ import Combine
 final class ContactListProviderVM {
     
     var cancellables = Set<AnyCancellable>() //Cancellables are automatically calls cancel due to Apple documentation. So no worries for memory leak.
-
-
+    
+    
     // Passing publisher as parameter provides us to make fake network call for unit test.
     func fetchTallinEmployeeList(_ publisher: AnyPublisher<Employees, Error>,onSuccess: @escaping (_ employeeList:Employees)->(), onFailure: @escaping (_ error:Any)->())
     {
@@ -27,10 +27,10 @@ final class ContactListProviderVM {
                 onSuccess(response)
             }).store(in: &cancellables)
     }
-
+    
     func fetchTartuEmployeeList(_ publisher: AnyPublisher<Employees, Error>,onSuccess: @escaping (_ employeeList:Employees)->(), onFailure: @escaping (_ error:Any)->())
     {
-       publisher
+        publisher
             .sink(receiveCompletion: { result in
                 switch result {
                 case .finished:  print("tartuEmployeeList fetched")
@@ -40,5 +40,5 @@ final class ContactListProviderVM {
                 onSuccess(response)
             }).store(in: &cancellables)
     }
-
+    
 }

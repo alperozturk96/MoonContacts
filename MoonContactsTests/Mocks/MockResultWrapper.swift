@@ -5,8 +5,8 @@
 //  Created by Alper Öztürk on 22.12.2021.
 
 /*
-    We added MockURLProtocol to this response handler and made it usable in our tests.
-*/
+ We added MockURLProtocol to this response handler and made it usable in our tests.
+ */
 
 //
 import Combine
@@ -16,7 +16,7 @@ import Foundation
 struct MockResultWrapper {
     var session:URLSession!
     var config:URLSessionConfiguration!
-   
+    
     struct Response<T> {
         let value: T
         let response: URLResponse

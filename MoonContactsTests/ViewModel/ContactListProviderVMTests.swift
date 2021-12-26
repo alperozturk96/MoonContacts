@@ -18,22 +18,22 @@ class ContactListProviderVMTests: XCTestCase {
         sut = ContactListProviderVM()
         
         let steve = Employee.init(fname: "Steve",
-                                     lname: "Carrell",
-                                     position: "DirectX Team Lead",
-                                     contact_details: ContactDetails.init(email: "stevedx10@hotmale.com", phone: "+9999221123123"),
-                                     projects: ["Windows 95", "Windows 2000"])
+                                  lname: "Carrell",
+                                  position: "DirectX Team Lead",
+                                  contact_details: ContactDetails.init(email: "stevedx10@hotmale.com", phone: "+9999221123123"),
+                                  projects: ["Windows 95", "Windows 2000"])
         
         let einstein = Employee.init(fname: "Albert",
-                                                lname: "Eeinstein",
-                                                position: "Physicist",
-                                                contact_details: ContactDetails.init(email: "einstein@fx.com", phone: "+314314314314"),
-                                                projects: ["Gravitational Waves"])
+                                     lname: "Eeinstein",
+                                     position: "Physicist",
+                                     contact_details: ContactDetails.init(email: "einstein@fx.com", phone: "+314314314314"),
+                                     projects: ["Gravitational Waves"])
         
         let kafka = Employee.init(fname: "Franz",
-                                                lname: "Kafka",
-                                                position: "Novelist",
-                                                contact_details: ContactDetails.init(email: "kafka@roma.com", phone: "+00000000000"),
-                                                projects: [" Metamorphosis"])
+                                  lname: "Kafka",
+                                  position: "Novelist",
+                                  contact_details: ContactDetails.init(email: "kafka@roma.com", phone: "+00000000000"),
+                                  projects: [" Metamorphosis"])
         
         
         workers = Employees.init(employees: [steve,einstein,einstein,kafka])

@@ -63,13 +63,13 @@ extension ContactListVC: UITableViewDataSource, UITableViewDelegate {
         
         // Each cell must have textLabel
         cell.textLabel?.text = fullName
-     
+        
         // If contact exist in device we can set delegate and contact into ContactListTableCell.
         if let contact = section.contact[safe:indexPath.row]{
             cell.initContact(contact)
             cell.delegate = self
         }
-
+        
         return cell
     }
     

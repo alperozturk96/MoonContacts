@@ -37,7 +37,7 @@ final class ContactListVC: BaseVC {
         addPullToRefreshToEmployeeTableView()
         fetchEmployeeList()
     }
-  
+    
     @objc func refreshEmployeeTableView(_ sender: AnyObject) {
         contactListVM.employees.removeAll()
         fetchEmployeeList()

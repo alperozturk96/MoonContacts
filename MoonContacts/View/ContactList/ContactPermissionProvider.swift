@@ -11,7 +11,7 @@ import ContactsUI
 
 final class ContactPermissionProvider {
     var store: CNContactStore
-  
+    
     required init(store: CNContactStore) {
         self.store = store
     }

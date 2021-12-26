@@ -5,8 +5,8 @@
 //  Created by Alper Öztürk on 21.10.2021.
 
 /*
-    This class responsible for making UIButton look like an icon.
-*/
+ This class responsible for making UIButton look like an icon.
+ */
 
 //
 

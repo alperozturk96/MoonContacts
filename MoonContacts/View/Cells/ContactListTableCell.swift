@@ -5,8 +5,8 @@
 //  Created by Alper Öztürk on 20.10.2021.
 
 /*
-    This class responsible for adding UIButton in every table cell.
-*/
+ This class responsible for adding UIButton in every table cell.
+ */
 
 //
 
@@ -29,7 +29,7 @@ final class ContactListTableCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-      
+        
         contentView.addSubview(button)
         
         // If contact is registered on the device, it adds action to related cellButton, so we are preventing multiple firing functions.

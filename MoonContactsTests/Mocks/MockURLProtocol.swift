@@ -5,9 +5,9 @@
 //  Created by Alper Öztürk on 22.12.2021.
 
 /*
-    We've made these additions to URLProtocol to make sure we're not making real network requests.
-    Unit test should be fast and indepented the real api call.
-*/
+ We've made these additions to URLProtocol to make sure we're not making real network requests.
+ Unit test should be fast and indepented the real api call.
+ */
 
 //
 
@@ -18,8 +18,8 @@ class MockURLProtocol: URLProtocol {
     static var stubResponseHandler: ((URLRequest) throws -> (HTTPURLResponse, Data))?
     
     override class func canInit(with task: URLSessionTask) -> Bool {
-       return true
-     }
+        return true
+    }
     
     override class func canInit(with request: URLRequest) -> Bool {
         return true

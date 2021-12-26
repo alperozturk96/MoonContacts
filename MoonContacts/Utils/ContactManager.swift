@@ -5,8 +5,8 @@
 //  Created by Alper Öztürk on 20.10.2021.
 
 /*
-    This class responsible for fetching contact list from device and prepare Contact array for usage.
-*/
+ This class responsible for fetching contact list from device and prepare Contact array for usage.
+ */
 
 //
 
@@ -24,7 +24,7 @@ final class ContactManager {
     }
     
     func fetchContactListFromDevice() -> [Contact]{
-       
+        
         let keysToFetch = [
             CNContactUrlAddressesKey,
             CNContactVCardSerialization.descriptorForRequiredKeys(),
@@ -64,7 +64,7 @@ final class ContactManager {
             let contact = Contact(contact: item, fullName: item.familyName + " " + item.givenName)
             contactsInDevice.append(contact)
         }
-     
+        
         return contactsInDevice
         
     }
